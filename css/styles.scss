@@ -1,0 +1,80 @@
+$background-dark: #020202;
+$backgroud-light: #f2f2f2;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 60px;
+  align-items: center;
+  background: $backgroud-light;
+  transition: 0.2s ease all;
+  font-family: "Arial";
+  text-align: center;
+
+  &.dark {
+    background: $background-dark;
+  }
+}
+
+.title {
+  font-size: 50px;
+
+  .container.dark & {
+    color: #fff;
+  }
+}
+
+.switch {
+  background: #343d58;
+  border-radius: 1000px;
+  border: none;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s ease all;
+  outline: none;
+
+  &::after {
+    content: "";
+    display: block;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    background: #f1f1f1;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 50%;
+    transition: 0.2s ease all;
+    box-shadow: 0 0 2px 2px rgba($color: #000000, $alpha: 0.2);
+  }
+
+  &.active {
+    background: orange;
+    color: #000;
+    &::after {
+      transform: translateX(100%);
+    }
+  }
+
+  .switch__icon {
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    display: block;
+    background: none;
+    color: #fff;
+    font-size: 18px;
+  }
+}
